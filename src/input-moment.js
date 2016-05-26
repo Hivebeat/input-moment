@@ -20,7 +20,8 @@ module.exports = React.createClass({
       locale: 'en',
       saveString: 'Save',
       dateOnly: false,
-      timeOnly: false
+      timeOnly: false,
+      hideSave: false
     };
   },
 
@@ -50,10 +51,12 @@ module.exports = React.createClass({
           onChange={this.props.onChange}
         />
 
-        <button type="button" className="im-btn btn-save ion-checkmark"
-          onClick={this.handleSave}>
-          {this.props.saveString}
-        </button>
+        {this.props.hideSave ? null : (
+          <button type="button" className="im-btn btn-save ion-checkmark"
+            onClick={this.handleSave}>
+            {this.props.saveString}
+          </button>
+        )}
       </div>
     );
   },
